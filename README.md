@@ -1,4 +1,5 @@
 # mini_projects-weatherapp_vuejs2
+A Weather webapplication made with VueJS v2
 
 ## Project setup
 ```
