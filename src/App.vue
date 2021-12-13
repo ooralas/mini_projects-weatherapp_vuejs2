@@ -1,23 +1,25 @@
 <template>
   <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm': ''">
     <main>
-      <h3 class="headline">Mini WeatherApp</h3>
-      <div class="search-box">
-        <input v-model="query" @keypress="fetchWeather" class="search-bar" type="text" placeholder="search a city"/>
-      </div>
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
-        <div class="location-box">
-          <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
-          <div class="date">{{dateBuilder()}}</div>
+      <div class="main-weather">
+        <h3 class="headline">Mini WeatherApp</h3>
+        <div class="search-box">
+          <input v-model="query" @keypress="fetchWeather" class="search-bar" type="text" placeholder="search a city"/>
         </div>
+        <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+          <div class="location-box">
+            <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
+            <div class="date">{{dateBuilder()}}</div>
+          </div>
 
-        <div class="weather-box">
-          <div class="temp">{{Math.round(weather.main.temp)}}°c</div>
-          <div class="weather">{{weather.weather[0].main}}</div>
+          <div class="weather-box">
+            <div class="temp">{{Math.round(weather.main.temp)}}°c</div>
+            <div class="weather">{{weather.weather[0].main}}</div>
+          </div>
         </div>
       </div>
+      <p class="footer">made by <a href="https://www.linkedin.com/in/salaralali" target="blank">Salar Al Ali with </a>❤️</p>
     </main>
-    <p class="footer">made by <a href="https://www.linkedin.com/in/salaralali" target="blank">Salar Al Ali with </a>❤️</p>
   </div>
 </template>
 
@@ -74,7 +76,6 @@ export default {
   }
   body {
     font-family: 'Montserrat', sans-serif;
-    overflow: hidden;
   }
   .headline {
     color: #FFF;
@@ -84,9 +85,13 @@ export default {
     text-align: center;
   }
   main{
-    min-height: calc(100vh - 24px);
+    min-height: 100vh;
     padding: 25px;
     background-image: linear-gradient(to bottom, rgba(0,0,0, 0.25), rgba(0,0,0,0.75));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   #app {
     background-image: url('./assets/cold-bg.jpg');
