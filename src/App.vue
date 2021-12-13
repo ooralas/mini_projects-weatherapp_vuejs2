@@ -25,6 +25,9 @@
 
 export default {
   name: 'App',
+  mounted(){
+    document.title = 'WeatherApp by Salar'
+  },
   data(){
     return {
       api_key: '73b550f7c423232a16bba2e078e957e9',
