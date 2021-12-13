@@ -1,8 +1,9 @@
 <template>
   <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm': ''">
     <main>
+      <h3 class="headline">Mini WeatherApp</h3>
       <div class="search-box">
-        <input v-model="query" @keypress="fetchWeather" class="search-bar" type="text" placeholder="search"/>
+        <input v-model="query" @keypress="fetchWeather" class="search-bar" type="text" placeholder="search a city"/>
       </div>
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
@@ -15,8 +16,8 @@
           <div class="weather">{{weather.weather[0].main}}</div>
         </div>
       </div>
-      <p class="footer">made by <a href="https://www.linkedin.com/in/salaralali" target="blank">Salar Al Ali</a></p>
     </main>
+    <p class="footer">made by <a href="https://www.linkedin.com/in/salaralali" target="blank">Salar Al Ali with </a>❤️</p>
   </div>
 </template>
 
@@ -64,16 +65,26 @@ export default {
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;700;900&display=swap');
+  
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+  }
+  .headline {
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin: 20px;
+    text-align: center;
   }
   main{
-    min-height: 100vh;
+    min-height: calc(100vh - 24px);
     padding: 25px;
     background-image: linear-gradient(to bottom, rgba(0,0,0, 0.25), rgba(0,0,0,0.75));
   }
@@ -130,6 +141,8 @@ export default {
   }
   .weather-box{
     text-align: center;
+    transition: 1s ease;
+    
   }
   .weather-box .temp {
     display: inline-block;
@@ -155,13 +168,11 @@ export default {
   .footer {
     color: #FFF;
     text-align: center;
-    font-size: 20px;
-    position: absolute;
-    bottom: 30px;
-    margin: 0 20%;
+    font-size: 15px;
+    
   }
   .footer a {
-    font-size: 30px;
+    font-size: 20px;
   }
   .footer a:link, a:visited {
     text-decoration: none;
