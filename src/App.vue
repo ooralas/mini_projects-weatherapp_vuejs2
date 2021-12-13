@@ -15,6 +15,7 @@
           <div class="weather">{{weather.weather[0].main}}</div>
         </div>
       </div>
+      <p class="footer">made by <a href="https://www.linkedin.com/in/salaralali" target="blank">Salar Al Ali</a></p>
     </main>
   </div>
 </template>
@@ -146,5 +147,26 @@ export default {
     font-weight: 700;
     font-style: italic;
     text-shadow: 3px 6px rgba(0,0,0, 0.25);
+  }
+
+  .footer {
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    bottom: 30px;
+    margin: 0 20%;
+  }
+  .footer a {
+    font-size: 30px;
+  }
+  .footer a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: .4s;
+  }
+  .footer a:hover {
+    color: rgb(228, 228, 228);
   }
 </style>
