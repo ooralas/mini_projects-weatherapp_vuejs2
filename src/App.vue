@@ -174,7 +174,7 @@ export default {
     color: #FFF;
     text-align: center;
     font-size: 15px;
-    
+    margin-bottom: 30px;
   }
   .footer a {
     font-size: 20px;
